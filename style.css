@@ -14,13 +14,13 @@
 
 .carousel:hover .next-btn {
   position: relative;
-  right: 0px;
+  right: 20px;
   transition: all .3s ease-in-out;
 }
 
 .carousel:hover .prev-btn {
   position: relative;
-  left: 0px;
+  left: 20px;
   transition: all .3s ease-in-out;
 }
 
@@ -56,7 +56,6 @@
 
 .carousel-controls .prev-btn,
 .carousel-controls .next-btn {
-  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   padding: 10px;
@@ -67,12 +66,21 @@
   position: relative;
   right: -100px;
   transition: all .3s ease-in-out;
+  width: 15px;
+  height: 15px;
+  clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+  background-color: white;
 }
 
 .prev-btn {
   position: relative;
   left: -100px;
   transition: all .3s ease-in-out;
+  width: 15px;
+  height: 15px;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 50%);
+
+  background-color: white;
 }
 
 /* Thumbnails container */
@@ -102,17 +110,21 @@
 /* Highlight the active thumbnail */
 .carousel-thumbnails div.active img {
   border: 3px solid #00afea;
-  transform: scale(1);
   /* Slightly enlarge active thumbnail */
   transition: border 0.5s ease-in-out;
   /* Smooth border transition */
 }
+.carousel-thumbnails div img:hover{
+  border: 3px solid #00afea;
+  transition: border 0.5s ease-in-out;
 
-@media screen and (max-width: 520px) {
+}
+@media screen and (max-width: 515px) {
   .carousel-frame {
     min-width: 100%;
     height: 350px;
   }
+
   .carousel-controls {
     position: absolute;
     top: 40%;
@@ -121,7 +133,7 @@
     justify-content: space-between;
     transform: translateY(-50%);
   }
-  
+
   .carousel-thumbnails {
     flex-wrap: wrap;
   }
