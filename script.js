@@ -1,7 +1,8 @@
 // Select all the frames and thumbnails
 const frames = document.querySelectorAll(".carousel-frame");
 const thumbnails = document.querySelectorAll(".carousel-thumbnails div");
-
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
 // Keep track of the currently active index
 let currentIndex = 0;
 
@@ -11,7 +12,9 @@ function showFrame(index) {
   const offset = -index * 100;
 
   // Smoothly translate the carousel stage to the new frame
-  document.querySelector(".carousel-stage").style.transform = `translateX(${offset}%)`;
+  document.querySelector(
+    ".carousel-stage"
+  ).style.transform = `translateX(${offset}%)`;
 
   // Update active states for thumbnails
   thumbnails[currentIndex].classList.remove("active");
@@ -38,3 +41,4 @@ thumbnails.forEach((thumbnail, index) => {
     showFrame(index);
   });
 });
+showFrame(0);

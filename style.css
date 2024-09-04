@@ -12,10 +12,23 @@
   overflow: hidden;
 }
 
+.carousel:hover .next-btn {
+  position: relative;
+  right: 0px;
+  transition: all .3s ease-in-out;
+}
+
+.carousel:hover .prev-btn {
+  position: relative;
+  left: 0px;
+  transition: all .3s ease-in-out;
+}
+
 /* Stage area where the images are shown */
 .carousel-stage {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* Smooth sliding effect */
+  transition: transform 0.5s ease-in-out;
+  /* Smooth sliding effect */
 }
 
 /* Each image frame */
@@ -50,6 +63,18 @@
   cursor: pointer;
 }
 
+.next-btn {
+  position: relative;
+  right: -100px;
+  transition: all .3s ease-in-out;
+}
+
+.prev-btn {
+  position: relative;
+  left: -100px;
+  transition: all .3s ease-in-out;
+}
+
 /* Thumbnails container */
 .carousel-thumbnails {
   display: flex;
@@ -77,6 +102,27 @@
 /* Highlight the active thumbnail */
 .carousel-thumbnails div.active img {
   border: 3px solid #00afea;
-  transform: scale(1); /* Slightly enlarge active thumbnail */
-  transition: border 0.5s ease-in-out; /* Smooth border transition */
+  transform: scale(1);
+  /* Slightly enlarge active thumbnail */
+  transition: border 0.5s ease-in-out;
+  /* Smooth border transition */
+}
+
+@media screen and (max-width: 520px) {
+  .carousel-frame {
+    min-width: 100%;
+    height: 350px;
+  }
+  .carousel-controls {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  
+  .carousel-thumbnails {
+    flex-wrap: wrap;
+  }
 }
